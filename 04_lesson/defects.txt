@@ -1,0 +1,32 @@
+1. Метод capitilize
+Заголовок: Некорректная работа функции test_string_capitilize_neg
+ при наличии пробела в начале текста.
+Шаги:
+1.1 заполнить параметры:
+@pytest.mark.parametrize("str2, result",
+                         [
+                             (" text", " Text"),
+                             ("  multiple   spaces", "  Multiple   spaces")
+                          ])
+1.2 Выполнить функцию:
+def test_string_capitilize_neg(str2, result):
+    assert string.capitilize(str2) == result
+
+ОР: При наличии пробелов первая буква в тексте становится с заглавной
+ФР: При наличии пробелов первая буква в тексте осталась строчной.
+
+2. Метод end_with
+Заголовок: Некорректная работа фукции test_string_end_with_neg
+ при сравнении последнего символа строки с пустым значением.
+Шаги:
+2.1 заполнить параметры:
+@pytest.mark.parametrize('str14, symbol, res',
+                         [
+                             (' Vika Isaeva', '', False) # сравнение строки с пустым значением  - ошибка
+                         ])
+2.2 Выполнить функцию:
+def test_string_end_with_neg(str14, symbol, res):
+    assert string.end_with(str14, symbol) == res
+
+ОР: При сравнении символов с пустым значением возвращается False.
+ФР: При сравнении символов с пустым значением возвращается True.
